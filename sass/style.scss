@@ -1,0 +1,171 @@
+
+:root{
+    font-size: 62.5%;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Babylonica&display=swap');
+
+@import 'reset';
+@import 'mixin';
+@import 'conf';
+
+
+body{
+    @include general($clr-700,$clr-300,$ff-1,$fs-1,$fw-1,start);
+    display: grid;
+    place-items: center;
+
+    @media (min-width:900px){
+        background-color: $clr-400;
+    }
+
+    main{
+        background-color: $clr-300;
+        width: min(351px,94%);
+
+        margin-block-end: 5rem;
+
+        @media (min-width:900px){
+            margin:0;
+            
+            width: min(680px,48%);
+            padding:2rem;
+            border-radius: 2rem;
+        }
+        header{
+            display:flex;
+            align-items: center;
+            gap: 0.7rem;
+
+            margin-block: 2rem 1.8rem;
+
+            h1{
+                color:$clr-900;
+                font-size: 2.4rem;
+            }
+            span{
+                background-color:$clr-200 ;
+                color:$clr-400;
+                border-radius: 0.6rem;
+
+                padding:0.2rem 0.8rem;
+            }
+            button{
+                border: none;
+                background-color: inherit;
+                color: $clr-800;
+                cursor: pointer;
+                font-size: $fs-1;
+
+                margin-inline-start: auto;
+
+                &:hover{color:$clr-200}
+            }
+        }
+        section{
+            display: grid;
+            grid-template-columns: clamp(10px,9vw,55px) 1fr;
+
+            row-gap: 1rem;
+
+            .card{
+                grid-column: 1/-1;
+
+                border-radius: 0.6rem;
+
+                display: grid;
+                grid-template-columns: clamp(10px,9vw,55px) 1fr;
+                column-gap: 1rem;
+
+                padding: 1.2rem 0.7rem;
+
+                background-color: $clr-400;
+
+                .profile-image{
+                    grid-column: 1/2;
+
+                        img{
+                            width: clamp(10px,9vw,55px);
+                        }
+                }
+                .name-time{
+                    grid-column: 2/3;
+
+                    p{
+                        .name > a{
+                            color: $clr-900;
+                            font-weight: $fw-2;
+
+                            position: relative;
+    
+                            &:hover{color:$clr-200};
+                        }
+                        .notification > a{
+                            color:$clr-800;
+                            font-weight: $fw-2;
+    
+                            &:hover{color:$clr-200};
+                        }
+                        .group > a{
+                            color: $clr-200;
+                            font-weight: $fw-2;
+    
+                            &:hover{color:$clr-200};
+                        }
+                        .circle{
+                            width:0.8rem;
+                            aspect-ratio: 1;
+                            border-radius: 50%;
+                            background-color: $clr-100;
+
+                            position: absolute;
+                            transform: translate(100%,100%);
+                        }
+                    }
+                    .time{
+                        border:none;
+                    }
+                }
+                .side-image{
+                    grid-column: 3/4;
+                    margin-inline-start: 1rem;
+
+                    img{
+                        width: clamp(10px,9vw,55px);
+                    }
+                }
+            }
+            .message{
+                border:1px solid $clr-600;
+                border-radius: 0.6rem;
+                line-height: 1.7rem;
+
+                grid-column: 2/4;
+
+                margin-block-end: 1.6rem;
+                margin-inline-start: 1.6rem;
+                padding-block: 2rem;
+                padding-inline: 2rem 3.2rem;
+
+                &:hover{background-color:$clr-600};
+
+                a{
+                    color:$clr-800;
+                }
+            }
+        }
+    }
+
+    .attribution{
+        font-size: 1rem;
+        position: fixed;
+        bottom: 0;
+
+        .name{
+            font-size: 3rem;
+            font-family: 'Babylonica', cursive;;
+        }
+    }
+}
+
